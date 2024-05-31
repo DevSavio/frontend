@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'EXECUT',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-            seedColor: Color.fromARGB(255, 196, 98, 103)),
+            seedColor: const Color.fromARGB(255, 226,179,179)),
         useMaterial3: true,
       ),
       home: const HomePage(),
