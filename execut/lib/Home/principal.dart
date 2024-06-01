@@ -80,11 +80,7 @@ class Principal extends StatelessWidget {
                       const SizedBox(
                         height: 50,
                       ),
-                      Positioned(
-                        left: 29,
-                        top: 474,
-                        child: _buildOrderList(),
-                      ),
+                      _buildOrderList(),
                     ],
                   ),
                 ),
@@ -181,59 +177,55 @@ class Principal extends StatelessWidget {
           )
         ],
       ),
-      child: Expanded(
-        child: Scrollbar(
-          thumbVisibility: true,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: _buildOrderItem(
+              title: 'OBRA',
+              address: 'ENDEREÇO',
+              date: 'DIA INICIAL',
+              providers: 'PESTADORES',
+              amount: 'VALOR',
+              status: 'STATUS',
+              statusColor: Colors.black,
+            ),
+          ),
+          Expanded(
             child: Scrollbar(
               thumbVisibility: true,
               child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    _buildOrderItem(
-                      title: 'OBRA',
-                      address: 'ENDEREÇO',
-                      date: 'DIA INICIAL',
-                      providers: 'PESTADORES',
-                      amount: 'VALOR',
-                      status: 'STATUS',
-                      statusColor: const Color(0xFF00B69B),
+                scrollDirection: Axis.horizontal,
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: Column(
+                      children: [
+                        ...getConstructions(),
+                      ],
                     ),
-                    _buildOrderItem(
-                      title: 'Apple Watch',
-                      address: '6096 Marjolaine Landing',
-                      date: '12.09.2019',
-                      providers: '100',
-                      amount: '\$34,295',
-                      status: 'Delivered',
-                      statusColor: const Color(0xFF00B69B),
-                    ),
-                    _buildOrderItem(
-                      title: 'Apple Watch',
-                      address: '6096 Marjolaine Landing',
-                      date: '12.09.2019',
-                      providers: '100',
-                      amount: '\$34,295',
-                      status: 'Delivered',
-                      statusColor: const Color(0xFF00B69B),
-                    ),
-                    _buildOrderItem(
-                      title: 'Apple Watch',
-                      address: '6096 Marjolaine Landing',
-                      date: '12.09.2019',
-                      providers: '100',
-                      amount: '\$34,295',
-                      status: 'Delivered',
-                      statusColor: const Color(0xFF00B69B),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> getConstructions() {
+    return List.generate(
+      10,
+      (index) => _buildOrderItem(
+        title: 'OBRA',
+        address: 'ENDEREÇO',
+        date: 'DIA INICIAL',
+        providers: 'PESTADORES',
+        amount: 'VALOR',
+        status: 'STATUS',
+        statusColor: const Color(0xFF00B69B),
       ),
     );
   }
@@ -265,22 +257,24 @@ class Principal extends StatelessWidget {
             buildCell(label: date, localWidth: 120.0),
             buildCell(label: providers, localWidth: 120.0),
             buildCell(label: amount, localWidth: 120.0),
-            buildCell(label: status, localWidth: 200.0),
+            buildCell(
+                label: status, localWidth: 200.0, statusColor: statusColor),
           ],
         ),
       ),
     );
   }
 
-  Widget buildCell({required String label, double localWidth = 100.0}) {
+  Widget buildCell(
+      {required String label, double localWidth = 100.0, Color? statusColor}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 20),
       child: SizedBox(
         width: localWidth,
         child: Text(
           label,
-          style: const TextStyle(
-            color: Colors.black,
+          style: TextStyle(
+            color: statusColor ?? Colors.black,
             fontSize: 14,
             fontFamily: 'Nunito Sans',
             fontWeight: FontWeight.w400,
