@@ -8,7 +8,8 @@
             "name": "execut",
             "cwd": "execut",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": ["-d", "web-server","--web-port", "8000"],
         },
         {
             "name": "execut (profile mode)",
