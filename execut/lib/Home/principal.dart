@@ -166,66 +166,74 @@ class Principal extends StatelessWidget {
   }
 
   Widget _buildOrderList() {
-    return Column(
-      children: [
-        _buildOrderHeader(),
-        _buildOrderItem(
-          title: 'Apple Watch',
-          address: '6096 Marjolaine Landing',
-          date: '12.09.2019',
-          amount: '\$34,295',
-          status: 'Delivered',
-          statusColor: const Color(0xFF00B69B),
-        ),
-        _buildOrderItem(
-          title: 'Apple Watch',
-          address: '6096 Marjolaine Landing',
-          date: '12.09.2019',
-          amount: '\$34,295',
-          status: 'Pending',
-          statusColor: const Color(0xFFFCBE2D),
-        ),
-        _buildOrderItem(
-          title: 'Apple Watch',
-          address: '6096 Marjolaine Landing',
-          date: '12.09.2019',
-          amount: '\$34,295',
-          status: 'Rejected',
-          statusColor: const Color(0xFFFD5454),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildOrderHeader() {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      height: 500,
       decoration: BoxDecoration(
-        color: const Color(0xFFF1F3F9),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildHeaderItem('OBRA'),
-          _buildHeaderItem('ENDEREÇO'),
-          _buildHeaderItem('PRESTADORES'),
-          _buildHeaderItem('VALOR'),
-          _buildHeaderItem('STATUS'),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x0C000000),
+            blurRadius: 54,
+            offset: Offset(6, 6),
+            spreadRadius: 0,
+          )
         ],
       ),
-    );
-  }
-
-  Widget _buildHeaderItem(String text) {
-    return Text(
-      text,
-      style: const TextStyle(
-        color: Colors.black,
-        fontSize: 16,
-        fontFamily: 'Nunito Sans',
-        fontWeight: FontWeight.w700,
+      child: Expanded(
+        child: Scrollbar(
+          thumbVisibility: true,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Scrollbar(
+              thumbVisibility: true,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    _buildOrderItem(
+                      title: 'OBRA',
+                      address: 'ENDEREÇO',
+                      date: 'DIA INICIAL',
+                      providers: 'PESTADORES',
+                      amount: 'VALOR',
+                      status: 'STATUS',
+                      statusColor: const Color(0xFF00B69B),
+                    ),
+                    _buildOrderItem(
+                      title: 'Apple Watch',
+                      address: '6096 Marjolaine Landing',
+                      date: '12.09.2019',
+                      providers: '100',
+                      amount: '\$34,295',
+                      status: 'Delivered',
+                      statusColor: const Color(0xFF00B69B),
+                    ),
+                    _buildOrderItem(
+                      title: 'Apple Watch',
+                      address: '6096 Marjolaine Landing',
+                      date: '12.09.2019',
+                      providers: '100',
+                      amount: '\$34,295',
+                      status: 'Delivered',
+                      statusColor: const Color(0xFF00B69B),
+                    ),
+                    _buildOrderItem(
+                      title: 'Apple Watch',
+                      address: '6096 Marjolaine Landing',
+                      date: '12.09.2019',
+                      providers: '100',
+                      amount: '\$34,295',
+                      status: 'Delivered',
+                      statusColor: const Color(0xFF00B69B),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -234,54 +242,66 @@ class Principal extends StatelessWidget {
     required String title,
     required String address,
     required String date,
+    required String providers,
     required String amount,
     required String status,
     required Color statusColor,
   }) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _buildOrderText(title),
-          _buildOrderText(address),
-          _buildOrderText(date),
-          _buildOrderText('423'), // Fixed number as per the original code
-          _buildOrderText(amount),
-          _buildStatusBox(status, statusColor),
-        ],
+      padding: const EdgeInsets.all(20.0),
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom:
+              BorderSide(width: 1.0, color: Color.fromARGB(255, 180, 184, 185)),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            buildCell(label: title, localWidth: 200.0),
+            buildCell(label: address, localWidth: 350.0),
+            buildCell(label: date, localWidth: 120.0),
+            buildCell(label: providers, localWidth: 120.0),
+            buildCell(label: amount, localWidth: 120.0),
+            buildCell(label: status, localWidth: 200.0),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildOrderText(String text) {
-    return Text(
-      text,
-      style: const TextStyle(
-        color: Colors.black,
-        fontSize: 14,
-        fontFamily: 'Nunito Sans',
-        fontWeight: FontWeight.w400,
-      ),
-    );
-  }
-
-  Widget _buildStatusBox(String status, Color color) {
+  Widget buildCell({required String label, double localWidth = 100.0}) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: sizeW * 0.00857128, vertical: sizeH * 0.008),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(13.5),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      child: SizedBox(
+        width: localWidth,
+        child: Text(
+          label,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 14,
+            fontFamily: 'Nunito Sans',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
       ),
+    );
+  }
+
+  Widget _buildOrderText(String text, double localWidth) {
+    return Container(
+      color: Colors.red,
+      width: localWidth,
       child: Text(
-        status,
+        text,
+        overflow: TextOverflow.ellipsis,
         style: const TextStyle(
-          color: Colors.white,
+          color: Colors.black,
           fontSize: 14,
           fontFamily: 'Nunito Sans',
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.w400,
         ),
       ),
     );
