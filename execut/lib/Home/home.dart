@@ -1,3 +1,4 @@
+import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
 import 'constructions/constructions_page.dart';
@@ -63,7 +64,7 @@ class NavigationSidebarMenuLight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 241,
+      width: sizeW * 0.16667,
       height: double.infinity,
       decoration: BoxDecoration(
         color: const Color(0xE5FAFAFA),
@@ -90,10 +91,10 @@ class NavigationSidebarMenuLight extends StatelessWidget {
 
   Widget _buildHeader() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24.0),
+      padding: const EdgeInsets.symmetric(vertical: sizeH * 0.016667),
       child: Row(
         children: [
-          const SizedBox(width: 48),
+          const SizedBox(width: sizeW * 0.0333),
           const Text(
             'EXECUT',
             textAlign: TextAlign.center,
@@ -104,10 +105,10 @@ class NavigationSidebarMenuLight extends StatelessWidget {
               fontWeight: FontWeight.w800,
             ),
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: sizeW * 0.0111),
           Container(
-            width: 25,
-            height: 25,
+            width: sizeW * 0.01785,
+            height: sizeH * 0.025,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage("assets/images/execut_editado.jpeg"),
@@ -133,9 +134,9 @@ class NavigationSidebarMenuLight extends StatelessWidget {
         }
       },
       child: Container(
-        width: 241,
-        height: 50,
-        margin: const EdgeInsets.symmetric(vertical: 5),
+        width: sizeW * 0.1715,
+        height: sizeH * 0.05,
+        margin: const EdgeInsets.symmetric(vertical: sizeH * 0.005),
         child: Stack(
           children: [
             if (isActive)
@@ -143,8 +144,8 @@ class NavigationSidebarMenuLight extends StatelessWidget {
                 left: 24,
                 top: 0,
                 child: Container(
-                  width: 192.80,
-                  height: 50,
+                  width: sizeW * 0.13785,
+                  height: sizeH * 0.05,
                   decoration: BoxDecoration(
                     color: const Color(0xFF174DC8),
                     borderRadius: BorderRadius.circular(6),

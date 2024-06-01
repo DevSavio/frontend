@@ -1,4 +1,5 @@
 import 'package:execut/LoginPage/login_page.dart';
+import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
 class CreateAccount extends StatelessWidget {
@@ -13,14 +14,14 @@ class CreateAccount extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(
-              width: 680,
+              width: sizeW * 0.48571,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(24),
-                border: Border.all(color: const Color(0xFFB8B8B8), width: 0.3),
+                border: Border.all(color: const Color(0xFFB8B8B8), width: sizeW * 0.0002142),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.symmetric(horizontal: sizeW * 0.01714285, vertical: sizeH * 0.024),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -34,7 +35,7 @@ class CreateAccount extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     const Center(
                       child: Text(
                         'Crie a conta para continuar',
@@ -45,7 +46,7 @@ class CreateAccount extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 50),
+                    const SizedBox(height: sizeH * 0.05),
                     const Text(
                       'Username',
                       style: TextStyle(
@@ -54,9 +55,9 @@ class CreateAccount extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     _buildInputField('Username', false),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: sizeH * 0.03),
                     const Text(
                       'Email:',
                       style: TextStyle(
@@ -65,9 +66,9 @@ class CreateAccount extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     _buildInputField('email@email.com', false),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: sizeH * 0.03),
                     const Text(
                       'Senha',
                       style: TextStyle(
@@ -76,9 +77,9 @@ class CreateAccount extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     _buildInputField('••••••••', true),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     const Align(
                       alignment: Alignment.centerRight,
                       child: Text(
@@ -90,7 +91,7 @@ class CreateAccount extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: sizeH * 0.02),
                     Row(
                       children: [
                         Checkbox(
@@ -107,7 +108,7 @@ class CreateAccount extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: sizeH * 0.03),
                     Center(
                       child: SizedBox(
                         width: double.infinity,
@@ -115,7 +116,7 @@ class CreateAccount extends StatelessWidget {
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4880FF),
-                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            padding: const EdgeInsets.symmetric(vertical: sizeH * 0.02),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -131,7 +132,7 @@ class CreateAccount extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: sizeH * 0.02),
                     Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -174,10 +175,10 @@ class CreateAccount extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFFF1F4F9),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: const Color(0xFFD7D7D7), width: 1),
+        border: Border.all(color: const Color(0xFFD7D7D7), width: sizeW * 0.00071428),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+        padding: const EdgeInsets.symmetric(horizontal: sizeW * 0.011428, vertical: sizeH * 0.012),
         child: Text(
           hintText,
           style: const TextStyle(

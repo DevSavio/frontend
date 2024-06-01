@@ -1,3 +1,4 @@
+import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -10,9 +11,9 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
             child: Container(
-              width: 714,
+              width: sizeW * 0.51,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(24),
@@ -20,7 +21,7 @@ class LoginPage extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 46.0, vertical: 70.0),
+                    horizontal: sizeW * 0.046, vertical: sizeH * 0.07),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -34,7 +35,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     const Center(
                       child: Text(
                         'Por favor entre com o seu email e senha',
@@ -45,7 +46,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 50),
+                    const SizedBox(height: sizeH * 0.05),
                     const Text(
                       'Email:',
                       style: TextStyle(
@@ -54,16 +55,16 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     Container(
                       decoration: BoxDecoration(
                         color: const Color(0xFFF1F4F9),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                            color: const Color(0xFFD7D7D7), width: 1),
+                            color: const Color(0xFFD7D7D7), width: sizeW * 0.0071428),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.all(16.0),
+                        padding: EdgeInsets.symmetric(horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
                         child: Text(
                           'execut@execut.com',
                           style: TextStyle(
@@ -74,7 +75,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: sizeH * 0.03),
                     const Text(
                       'Senha',
                       style: TextStyle(
@@ -83,16 +84,16 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: sizeH * 0.01),
                     Container(
                       decoration: BoxDecoration(
                         color: const Color(0xFFF1F4F9),
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                            color: const Color(0xFFD7D7D7), width: 1),
+                            color: const Color(0xFFD7D7D7), width: sizeW * 0.00071428),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.all(16.0),
+                        padding: EdgeInsets.symmetric(horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -107,7 +108,7 @@ class LoginPage extends StatelessWidget {
                             Text(
                               'Esqueceu a Senha?',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 0, 25, 49),
+                                color: Color.fromARGB(255, 0, 0, 0),
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -116,7 +117,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: sizeH * 0.02),
                     Row(
                       children: [
                         Checkbox(
@@ -133,7 +134,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: sizeH * 0.03),
                     Center(
                       child: SizedBox(
                         width: double.infinity,
@@ -141,7 +142,7 @@ class LoginPage extends StatelessWidget {
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4880FF),
-                            padding: const EdgeInsets.symmetric(vertical: 20),
+                            padding: const EdgeInsets.symmetric(vertical: sizeH * 0.02),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -157,7 +158,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: sizeH * 0.02),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -169,7 +170,7 @@ class LoginPage extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        SizedBox(width: 10),
+                        SizedBox(width: sizeW * 0.00714285),
                         Text(
                           'Crie sua Conta',
                           style: TextStyle(

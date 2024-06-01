@@ -1,3 +1,4 @@
+import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
 class Principal extends StatelessWidget {
@@ -8,8 +9,8 @@ class Principal extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Container(
-          width: 1200,
-          height: 1070,
+          width: sizeW * 0.8571425,
+          height: sizeH * 1.0,
           decoration: const BoxDecoration(color: Color.fromARGB(255, 250, 143, 143)),
           child: Stack(
             children: [
@@ -94,8 +95,8 @@ class Principal extends StatelessWidget {
       required String value,
       required String imageUrl}) {
     return Container(
-      width: 262,
-      height: 161,
+      width: sizeW * 0.1857142,
+      height: sizeH * 0.161,
       decoration: BoxDecoration(
         color: const Color(0xFFF5F4F4),
         borderRadius: BorderRadius.circular(14),
@@ -109,7 +110,7 @@ class Principal extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -138,7 +139,7 @@ class Principal extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: Opacity(
                 opacity: 0.30,
-                child: Image.network(imageUrl, width: 60, height: 60),
+                child: Image.network(imageUrl, width: sizeW * 0.0428571, height: sizeH * 0.06),
               ),
             ),
           ],
@@ -181,7 +182,7 @@ class Principal extends StatelessWidget {
 
   Widget _buildOrderHeader() {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
       decoration: BoxDecoration(
         color: const Color(0xFFF1F3F9),
         borderRadius: BorderRadius.circular(12),
@@ -220,7 +221,7 @@ class Principal extends StatelessWidget {
     required Color statusColor,
   }) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: sizeW * 0.0114285, vertical: sizeH * 0.016),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -249,7 +250,7 @@ class Principal extends StatelessWidget {
 
   Widget _buildStatusBox(String status, Color color) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: sizeW * 0.00857128, vertical: sizeH * 0.008),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(13.5),
