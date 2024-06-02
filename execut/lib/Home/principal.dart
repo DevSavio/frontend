@@ -1,8 +1,100 @@
-import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 
-class Principal extends StatelessWidget {
+class Principal extends StatefulWidget {
   const Principal({super.key});
+
+  @override
+  State<Principal> createState() => _PrincipalState();
+}
+
+class _PrincipalState extends State<Principal> {
+  List<dynamic> contstructions = [];
+  String getStatusConstruc(DateTime dt) {
+    int difference = dt.difference(DateTime.now()).inDays;
+
+    if (difference < 0) {
+      return "Atrazada";
+    } else if (difference < 30) {
+      return "Em breve";
+    } else if (difference > 30) {
+      return "Futuro";
+    } else {
+      return "Em andamento";
+    }
+  }
+
+  Color getStatusColorConstruc(DateTime dt) {
+    int difference = dt.difference(DateTime.now()).inDays;
+
+    if (difference < 0) {
+      return Colors.red;
+    } else if (difference < 30) {
+      return Colors.orange;
+    } else if (difference > 30) {
+      return Colors.green;
+    } else {
+      return Colors.black;
+    }
+  }
+
+  void getConstructionsInDatabase() async {
+    try {
+      Dio customDio = Dio(
+        BaseOptions(
+          connectTimeout: const Duration(seconds: 3000),
+          receiveTimeout: const Duration(seconds: 3000),
+          contentType: Headers.jsonContentType,
+          validateStatus: (int? status) {
+            return status != null;
+            // return status != null && status >= 200 && status < 300;
+          },
+        ),
+      );
+
+      customDio.interceptors.addAll([
+        ErrorInterceptor(),
+      ]);
+
+      final response = await customDio.get('http://localhost:8080/obras');
+
+      response.data.forEach((item) {
+        contstructions.add({
+          "title": item['responsavelObra'],
+          "address": item['logradouro'] + item['complemento'],
+          "date": DateFormat('dd/MM/yyyy')
+              .format(DateTime.parse(item['dataInicio'])),
+          "providers": "item['providers']",
+          "amount": item['valorFinal'].toString(),
+          "status": getStatusConstruc(
+            DateTime.parse(
+              item['dataFim'],
+            ),
+          ),
+          "statusColor": getStatusColorConstruc(
+            DateTime.parse(
+              item['dataFim'],
+            ),
+          ),
+        });
+      });
+
+      setState(() {});
+
+      print(response);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    getConstructionsInDatabase();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,33 +271,26 @@ class Principal extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: _buildOrderItem(
-              title: 'OBRA',
-              address: 'ENDEREÇO',
-              date: 'DIA INICIAL',
-              providers: 'PESTADORES',
-              amount: 'VALOR',
-              status: 'STATUS',
-              statusColor: Colors.black,
-            ),
+          _buildOrderItem(
+            title: 'RESPONSÁVEL',
+            address: 'ENDEREÇO',
+            date: 'DIA INICIAL',
+            providers: 'PRESTADORES',
+            amount: 'VALOR',
+            status: 'STATUS',
+            statusColor: Colors.black,
           ),
           Expanded(
             child: Scrollbar(
               thumbVisibility: true,
               child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Scrollbar(
-                  thumbVisibility: true,
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Column(
-                      children: [
-                        ...getConstructions(),
-                      ],
-                    ),
-                  ),
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    ...getConstructions(),
+                  ],
                 ),
               ),
             ),
@@ -216,18 +301,21 @@ class Principal extends StatelessWidget {
   }
 
   List<Widget> getConstructions() {
-    return List.generate(
-      10,
-      (index) => _buildOrderItem(
-        title: 'OBRA',
-        address: 'ENDEREÇO',
-        date: 'DIA INICIAL',
-        providers: 'PESTADORES',
-        amount: 'VALOR',
-        status: 'STATUS',
-        statusColor: const Color(0xFF00B69B),
-      ),
-    );
+    List<Widget> list = [];
+
+    contstructions.forEach((item) {
+      list.add(_buildOrderItem(
+        title: item['title'],
+        address: item['address'],
+        date: item['date'],
+        providers: item['providers'],
+        amount: item['amount'],
+        status: item['status'],
+        statusColor: item['statusColor'],
+      ));
+    });
+
+    return list;
   }
 
   Widget _buildOrderItem({
@@ -250,7 +338,7 @@ class Principal extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             buildCell(label: title, localWidth: 200.0),
             buildCell(label: address, localWidth: 350.0),
@@ -283,21 +371,20 @@ class Principal extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildOrderText(String text, double localWidth) {
-    return Container(
-      color: Colors.red,
-      width: localWidth,
-      child: Text(
-        text,
-        overflow: TextOverflow.ellipsis,
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 14,
-          fontFamily: 'Nunito Sans',
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-    );
+class ErrorInterceptor extends Interceptor {
+  @override
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    final status = response.statusCode;
+    final isValid = status != null && status >= 200 && status < 300;
+    if (!isValid) {
+      throw DioException.badResponse(
+        statusCode: status!,
+        requestOptions: response.requestOptions,
+        response: response,
+      );
+    }
+    super.onResponse(response, handler);
   }
 }
