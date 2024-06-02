@@ -1,3 +1,4 @@
+import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
 class ConstructionsPage extends StatelessWidget {
@@ -5,8 +6,28 @@ class ConstructionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Constructions Page'),
+    return Scaffold(
+      body: Container(
+        decoration:
+            const BoxDecoration(color: Color.fromARGB(255, 250, 143, 143)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: sizeW * 1.0,
+              padding: const EdgeInsets.all(5.0),
+              child: const Center(
+                child: Text("Obras em construção", 
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                ),
+              ),
+              )
+            )
+          ]
+        )
+      )
     );
   }
 }
