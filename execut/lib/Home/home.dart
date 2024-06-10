@@ -7,7 +7,7 @@ import 'payments/payments_page.dart';
 import 'principal.dart';
 import 'provider/provider_page.dart';
 import 'settings/settings_page.dart';
-import 'supplier/supplier_page.dart'; 
+import 'supplier/supplier_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Widget> _pages = [
     const Principal(),
@@ -40,8 +40,9 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       body: Row(
         children: [
-          NavigationSidebarMenuLight(onMenuItemSelected: _onMenuItemSelected, selectedIndex:  _selectedIndex
-          ),
+          NavigationSidebarMenuLight(
+              onMenuItemSelected: _onMenuItemSelected,
+              selectedIndex: _selectedIndex),
           Expanded(
             child: IndexedStack(
               index: _selectedIndex,
@@ -58,8 +59,11 @@ class NavigationSidebarMenuLight extends StatelessWidget {
   final Function(int) onMenuItemSelected;
   final int selectedIndex;
 
-  const NavigationSidebarMenuLight(
-      {super.key, required this.onMenuItemSelected, required this.selectedIndex,});
+  const NavigationSidebarMenuLight({
+    super.key,
+    required this.onMenuItemSelected,
+    required this.selectedIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -81,9 +85,16 @@ class NavigationSidebarMenuLight extends StatelessWidget {
           _buildMenuItem('PAGAMENTOS', Icons.home, 5, selectedIndex == 5),
           const Spacer(),
           _buildMenuItem('CONFIGURACAO', Icons.home, 6, selectedIndex == 6),
-          _buildMenuItem('SAIR', Icons.home, 7, false, isActionSimple: true, onSimpleTapped: () {
-            Navigator.of(context).pushReplacementNamed('/login');
-          },),
+          _buildMenuItem(
+            'SAIR',
+            Icons.home,
+            7,
+            false,
+            isActionSimple: true,
+            onSimpleTapped: () {
+              Navigator.of(context).pushReplacementNamed('/login');
+            },
+          ),
         ],
       ),
     );
@@ -128,9 +139,9 @@ class NavigationSidebarMenuLight extends StatelessWidget {
         if (isActionSimple == false) {
           onMenuItemSelected(index);
         } else {
-            if(onSimpleTapped != null  ) {
-                onSimpleTapped();
-            }
+          if (onSimpleTapped != null) {
+            onSimpleTapped();
+          }
         }
       },
       child: Container(

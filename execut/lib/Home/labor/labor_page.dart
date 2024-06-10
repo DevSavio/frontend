@@ -3,214 +3,221 @@
 import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/custom_button.dart';
+import '../../widgets/search_bar.dart';
+
 class LaborPage extends StatelessWidget {
   const LaborPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration:
-            const BoxDecoration(color: Color.fromARGB(255, 250, 143, 143)),
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      const SizedBox(
-                        height: sizeH * 0.05,
-                      ),
-                      const Text(
-                        'MÃO DE OBRA',
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          color: Color(0xFF202224),
-                          fontSize: 36,
-                          fontFamily: 'Nunito Sans',
-                          fontWeight: FontWeight.bold,
+        body: Container(
+            decoration:
+                const BoxDecoration(color: Color.fromARGB(255, 250, 143, 143)),
+            child: Column(children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Container(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        const SizedBox(
+                          height: sizeH * 0.05,
                         ),
-                      ),
-                      const SizedBox(
-                        height: sizeH * 0.05,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                        width: sizeW * 0.3525,
-                        height: sizeH * 0.07,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(25),
-                        color: const Color.fromARGB(255, 224, 221, 221),),
-                        child:Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: const [
+                        const Text(
+                          'MÃO DE OBRA',
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                            color: Color(0xFF202224),
+                            fontSize: 36,
+                            fontFamily: 'Nunito Sans',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: sizeH * 0.05,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                                width: sizeW * 0.3525,
+                                height: sizeH * 0.07,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(25),
+                                  color:
+                                      const Color.fromARGB(255, 224, 221, 221),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: sizeW * 0.01875),
+                                      child: Icon(Icons.search),
+                                    ),
+                                    Text(
+                                      "Procurar",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
+                                    )
+                                  ],
+                                )),
+                            Container(
+                                alignment: Alignment.center,
+                                width: sizeW * 0.1375,
+                                height: sizeH * 0.075,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: Color.fromARGB(255, 17, 1, 192),
+                                ),
+                                child: Text(
+                                  "ADICIONAR NOVO",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                )),
+                          ],
+                        ),
+                        Wrap(
+                          alignment: WrapAlignment.spaceBetween,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
                             Padding(
-                              padding: EdgeInsets.symmetric(horizontal: sizeW * 0.01875),
-                              child: Icon(Icons.search),
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                            Text("Procurar", style: TextStyle(
-                              color: Colors.black,
-                            ),)
-                          ],)
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        width: sizeW * 0.1375,
-                        height: sizeH * 0.075,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),
-                        color: Color.fromARGB(255, 17, 1, 192),),
-                        child:Text("ADICIONAR NOVO",
-                        textAlign: TextAlign.center, 
-                        style: TextStyle(
-                        color: Colors.white,
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
+                            ),
+                          ],
                         ),
-                                                  )
-                      ),
-                        ],
-                      ),
-                      Wrap(
-                        alignment: WrapAlignment.spaceBetween,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                        Wrap(
+                          alignment: WrapAlignment.spaceBetween,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Wrap(
-                        alignment: WrapAlignment.spaceBetween,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                          ],
+                        ),
+                        Wrap(
+                          alignment: WrapAlignment.spaceBetween,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
+                            Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: _cardPerson(
+                                nome: 'Nome da Pessoa',
+                                funcao: 'função a ser desempenhada',
+                                icon: Icons.person,
+                                telefone: "contato pessoal",
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Wrap(
-                        alignment: WrapAlignment.spaceBetween,
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: _cardPerson(
-                              nome: 'Nome da Pessoa',
-                              funcao: 'função a ser desempenhada',
-                              icon: Icons.person,
-                              telefone: "contato pessoal",
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ]
-        )
-      )
-    );
+            ])));
   }
 
-
-    Widget _cardPerson({
+  Widget _cardPerson({
     required String nome,
     required String funcao,
     required IconData icon,
@@ -254,7 +261,8 @@ class LaborPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 50),
-                  child: Icon(Icons.edit_square, color: Colors.black, size: 20.0),
+                  child:
+                      Icon(Icons.edit_square, color: Colors.black, size: 20.0),
                 ),
               ],
             ),
