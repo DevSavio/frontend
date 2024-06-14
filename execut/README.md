@@ -10,7 +10,7 @@ Alguns recursos para você começar se este for seu primeiro projeto Flutter:
 
 - [Lab: escreva seu primeiro aplicativo Flutter](https://docs.flutter.dev/get-started/codelab)
 
-bibliotecas utilizadas:
+## Bibliotecas utilizadas:
 
   - [x] https://pub.dev/packages/dio
   - [x] https://pub.dev/packages/extended_wrap
