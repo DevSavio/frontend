@@ -1,5 +1,20 @@
 import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
+class Person {
+  final int id;
+  final String nome;
+  final String funcao;
+  final IconData icon;
+  final String telefone;
+
+  Person({
+    required this.id,
+    required this.nome,
+    required this.funcao,
+    required this.icon,
+    required this.telefone,
+  });
+}
 
 class ConstructionsPage extends StatefulWidget {
   const ConstructionsPage({super.key});
@@ -35,6 +50,29 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
 
       final response = await customDio.get('http://localhost:8080/obras');
 
+      response.data.forEach((item) {
+        listaobras.add({
+          "responsavelObra": item['responsavelObra'],
+          "valorFinal": item['valorFinal'],
+        });
+      });
+  List<Widget> buildItens() {
+    List<Widget> list = [];
+    for (int i = 0; i < listaobras.length; i++) {
+      list.add(
+        _cardPerson(
+          person: Person(
+            id: i,
+            nome: listaobras[i]['responsavelObra'],
+            funcao: listaobras[i]['valorFinal'].toString(),
+            icon: Icons.person,
+            telefone: "contato pessoal",
+          ),
+        ),
+      );
+    }
+    return list;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
