@@ -44,61 +44,10 @@ class _PrincipalState extends State<Principal> {
     }
   }
 
-  void getConstructionsInDatabase() async {
-    try {
-      Dio customDio = Dio(
-        BaseOptions(
-          connectTimeout: const Duration(seconds: 3000),
-          receiveTimeout: const Duration(seconds: 3000),
-          contentType: Headers.jsonContentType,
-          validateStatus: (int? status) {
-            return status != null;
-            // return status != null && status >= 200 && status < 300;
-          },
-        ),
-      );
-
-      customDio.interceptors.addAll([
-        ErrorInterceptor(),
-      ]);
-
-      final response = await customDio.get('http://localhost:8080/obras');
-
-      response.data.forEach((item) {
-        contstructions.add({
-          "title": item['responsavelObra'],
-          "address": item['logradouro'] + item['complemento'],
-          "date": DateFormat('dd/MM/yyyy')
-              .format(DateTime.parse(item['dataInicio'])),
-          "providers": "item['providers']",
-          "amount": item['valorFinal'].toString(),
-          "status": getStatusConstruc(
-            DateTime.parse(
-              item['dataFim'],
-            ),
-          ),
-          "statusColor": getStatusColorConstruc(
-            DateTime.parse(
-              item['dataFim'],
-            ),
-          ),
-        });
-      });
-
-      setState(() {});
-
-      print(response);
-    } catch (e) {
-      print(e);
-    }
-  }
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
-    getConstructionsInDatabase();
   }
 
   @override
