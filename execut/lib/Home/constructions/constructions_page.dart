@@ -9,6 +9,31 @@ class ConstructionsPage extends StatefulWidget {
 }
 
 class _ConstructionsPageState extends State<ConstructionsPage> {
+  @override
+  void initState() {
+    super.initState();
+    getInDatabase();
+  }
+
+  void getInDatabase() async {
+    try {
+      Dio customDio = Dio(
+        BaseOptions(
+          connectTimeout: const Duration(seconds: 3000),
+          receiveTimeout: const Duration(seconds: 3000),
+          contentType: Headers.jsonContentType,
+          validateStatus: (int? status) {
+            return status != null;
+            // return status != null && status >= 200 && status < 300;
+          },
+        ),
+      );
+
+      customDio.interceptors.addAll([
+        ErrorInterceptor(),
+      ]);
+
+      final response = await customDio.get('http://localhost:8080/obras');
 
   @override
   Widget build(BuildContext context) {
