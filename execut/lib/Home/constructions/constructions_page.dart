@@ -1,5 +1,11 @@
+import 'package:dio/dio.dart';
+import 'package:execut/Home/principal.dart';
 import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import '../../widgets/modal_widget.dart';
+
 class Person {
   final int id;
   final String nome;
@@ -58,6 +64,17 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
           "valorFinal": item['valorFinal'],
         });
       });
+
+      setState(() {
+        print("zzaa");
+      });
+
+      print(response);
+    } catch (e) {
+      print(e);
+    }
+  }
+
   List<Widget> buildItens() {
     List<Widget> list = [];
     for (int i = 0; i < listaobras.length; i++) {
@@ -75,6 +92,146 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
     }
     return list;
   }
+
+  Future<void> showMyDialog(context, {Person? person}) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return ModalWidget(
+          child: SizedBox(
+            width: 600,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Linha 1: Imagem
+                Container(
+                  width: 66,
+                  height: 66,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage("https://via.placeholder.com/66x66"),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16),
+                // Linha 2: Campo de descrição
+                person != null
+                    ? Text(
+                        person.nome,
+                      )
+                    : SizedBox(
+                        height: 0,
+                      ),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Descrição',
+                    hintText: 'Descrição do que será feito na obra',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  maxLines: 3,
+                ),
+                SizedBox(height: 16),
+                // Linha 3: Seletor de tipo de mão de obra e seletor de prestador
+                Row(
+                  children: [
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          labelText: 'Tipo de Mão de Obra',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        items: [
+                          DropdownMenuItem(
+                            value: 'Tipo 1',
+                            child: Text('Tipo 1'),
+                          ),
+                          DropdownMenuItem(
+                            value: 'Tipo 2',
+                            child: Text('Tipo 2'),
+                          ),
+                        ],
+                        onChanged: (value) {},
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          labelText: 'Prestador',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        items: [
+                          DropdownMenuItem(
+                            value: 'Prestador 1',
+                            child: Text('Prestador 1'),
+                          ),
+                          DropdownMenuItem(
+                            value: 'Prestador 2',
+                            child: Text('Prestador 2'),
+                          ),
+                        ],
+                        onChanged: (value) {},
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16),
+                // Linha 4: Seletor de função
+                DropdownButtonFormField<String>(
+                  decoration: InputDecoration(
+                    labelText: 'Função',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  items: [
+                    DropdownMenuItem(
+                      value: 'Função 1',
+                      child: Text('Função 1'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'Função 2',
+                      child: Text('Função 2'),
+                    ),
+                  ],
+                  onChanged: (value) {},
+                ),
+                SizedBox(height: 50),
+              ],
+            ),
+          ),
+        );
+        // AlertDialog(
+        //   title: const Text('AlertDialog Title'),
+        //   content: const SingleChildScrollView(
+        //     child: ListBody(
+        //       children: <Widget>[
+        //         Text('This is a demo alert dialog.'),
+        //         Text('Would you like to approve of this message?'),
+        //       ],
+        //     ),
+        //   ),
+        //   actions: <Widget>[
+        //     TextButton(
+        //       child: const Text('Approve'),
+        //       onPressed: () {
+        //         Navigator.of(context).pop();
+        //       },
+        //     ),
+        //   ],
+        // );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,8 +256,8 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                     fontSize: 36,
                     fontFamily: 'Nunito Sans',
                     fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
               ],
             ),
             Row(
