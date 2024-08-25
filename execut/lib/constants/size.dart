@@ -1,2 +1,2 @@
-const double sizeH = 1000;
-const double sizeW = 1400;
+const double sizeH = 750;
+const double sizeW = 1200;

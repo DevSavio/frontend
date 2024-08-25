@@ -54,14 +54,14 @@ class _LaborPageState extends State<LaborPage> {
       builder: (BuildContext context) {
         return ModalWidget(
           child: SizedBox(
-            width: 600,
+            width: 500,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 // Linha 1: Imagem
                 Container(
-                  width: 66,
-                  height: 66,
+                  width: 50,
+                  height: 50,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage("https://via.placeholder.com/66x66"),
@@ -289,8 +289,8 @@ class _LaborPageState extends State<LaborPage> {
       children: [
         Container(
           margin: EdgeInsets.all(5),
-          height: 235,
-          width: 290,
+          height: sizeH * 0.155,
+          width: sizeW * 0.225,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(14),
