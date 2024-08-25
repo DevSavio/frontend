@@ -1,8 +1,14 @@
 import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
-class ConstructionsPage extends StatelessWidget {
+class ConstructionsPage extends StatefulWidget {
   const ConstructionsPage({super.key});
+
+  @override
+  State<ConstructionsPage> createState() => _ConstructionsPageState();
+}
+
+class _ConstructionsPageState extends State<ConstructionsPage> {
 
   @override
   Widget build(BuildContext context) {
