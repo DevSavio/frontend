@@ -93,7 +93,8 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
       });
 
       setState(() {
-        print("zzaa");
+        print("Até aqui o Senhor tem me acompanhado");
+        print(listaobras.toList());
       });
 
       print(response);
