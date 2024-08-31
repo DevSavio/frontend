@@ -43,10 +43,53 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
       final response = await customDio.get('http://localhost:8080/obras');
 
       response.data.forEach((item) {
-        listaobras.add({
-          "responsavelObra": item['responsavelObra'],
-          "valorFinal": item['valorFinal'],
-        });
+        listaobras.add(
+          Obra(
+            idObra: item["idObra"],
+            valorFinal: item["valorFinal"],
+            dataInicio: DateTime.parse(item["dataInicio"]),
+            dataFim: DateTime.parse(item["dataFim"]),
+            responsavelObra: item["responsavelObra"],
+            cliente: Cliente(
+              idCliente: item["cliente"]["idCliente"],
+              nomeCliente: item["cliente"]["nomeCliente"],
+              razaoSocial: item["cliente"]["razaoSocial"],
+              cpfCnpj: item["cliente"]["cpfCnpj"],
+              telefone: item["cliente"]["telefone"],
+              endereco: Endereco(
+                idEndereco: item["cliente"]["endereco"]["idEndereco"],
+                logradouro: item["cliente"]["endereco"]["logradouro"],
+                complemento: item["cliente"]["endereco"]["complemento"],
+                cidade: item["cliente"]["endereco"]["cidade"],
+                estado: item["cliente"]["endereco"]["estado"],
+              ),
+            ),
+            pagamento: Pagamento(
+              idPagamento: item["pagamento"]["idPagamento"],
+              tipoPagamento: item["pagamento"]["tipoPagamento"],
+              moeda: item["pagamento"]["moeda"],
+            ),
+            prestador: Prestador(
+              idPrestador: item["prestador"]["idPrestador"],
+              nomePrestador: item["prestador"]["nomePrestador"],
+              tipoPrestador: item["prestador"]["tipoPrestador"],
+              cpfCnpj: item["prestador"]["cpfCnpj"],
+              telefone: item["prestador"]["telefone"],
+              funcao: Funcao(
+                idFuncao: item["prestador"]["funcao"]['idFuncao'],
+                nomeFuncao: item["prestador"]["funcao"]['nomeFuncao'],
+                descricaoFuncao: item["prestador"]["funcao"]['descricaoFuncao'],
+              ),
+            ),
+            endereco: Endereco(
+              idEndereco: item["endereco"]["idEndereco"],
+              logradouro: item["endereco"]["logradouro"],
+              complemento: item["endereco"]["complemento"],
+              cidade: item["endereco"]["cidade"],
+              estado: item["endereco"]["estado"],
+            ),
+          ),
+        );
       });
 
       setState(() {
