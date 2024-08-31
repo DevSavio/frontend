@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
-import 'package:intl/intl.dart';
-import 'dart:math';
-
-import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
-import 'package:intl/intl.dart';
 
 class Principal extends StatefulWidget {
   const Principal({super.key});
