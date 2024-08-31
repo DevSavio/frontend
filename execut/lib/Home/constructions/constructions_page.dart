@@ -4,23 +4,8 @@ import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../models/endereco_model.dart';
 import '../../widgets/modal_widget.dart';
-
-class Person {
-  final int id;
-  final String nome;
-  final String funcao;
-  final IconData icon;
-  final String telefone;
-
-  Person({
-    required this.id,
-    required this.nome,
-    required this.funcao,
-    required this.icon,
-    required this.telefone,
-  });
-}
 
 class ConstructionsPage extends StatefulWidget {
   const ConstructionsPage({super.key});
