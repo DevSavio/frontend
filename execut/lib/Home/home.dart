@@ -1,3 +1,4 @@
+import 'package:execut/Home/clients/client_page.dart';
 import 'package:execut/constants/size.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,7 @@ class HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = [
     const Principal(),
+    const ClientPage(),
     const LaborPage(),
     const SupplierPage(),
     const ProviderPage(),
@@ -78,13 +80,14 @@ class NavigationSidebarMenuLight extends StatelessWidget {
         children: [
           _buildHeader(),
           _buildMenuItem('PRINCIPAL', Icons.home, 0, selectedIndex == 0),
-          _buildMenuItem('MAO DE OBRA', Icons.home, 1, selectedIndex == 1),
-          _buildMenuItem('FORNECEDOR', Icons.home, 2, selectedIndex == 2),
-          _buildMenuItem('PRESTADOR', Icons.home, 3, selectedIndex == 3),
-          _buildMenuItem('OBRAS', Icons.home, 4, selectedIndex == 4),
-          _buildMenuItem('PAGAMENTOS', Icons.home, 5, selectedIndex == 5),
+          _buildMenuItem('CLIENTE', Icons.home, 1, selectedIndex == 1),
+          _buildMenuItem('MAO DE OBRA', Icons.home, 2, selectedIndex == 2),
+          _buildMenuItem('FORNECEDOR', Icons.home, 3, selectedIndex == 3),
+          _buildMenuItem('PRESTADOR', Icons.home, 4, selectedIndex == 4),
+          _buildMenuItem('OBRAS', Icons.home, 5, selectedIndex == 5),
+          _buildMenuItem('PAGAMENTOS', Icons.home, 6, selectedIndex == 6),
           const Spacer(),
-          _buildMenuItem('CONFIGURACAO', Icons.home, 6, selectedIndex == 6),
+          _buildMenuItem('CONFIGURACAO', Icons.home, 7, selectedIndex == 7),
           _buildMenuItem(
             'SAIR',
             Icons.home,
