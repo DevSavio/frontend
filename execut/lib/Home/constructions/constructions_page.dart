@@ -1,8 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:execut/Home/principal.dart';
 import 'package:execut/constants/size.dart';
+import 'package:execut/models/cliente_model.dart';
+import 'package:execut/models/funcao_model.dart';
+import 'package:execut/models/obra_model.dart';
+import 'package:execut/models/pagamento_model.dart';
+import 'package:execut/models/prestador_model.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../../models/endereco_model.dart';
 import '../../widgets/modal_widget.dart';
@@ -442,11 +446,6 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
               ];
             },
           ),
-          //  Icon(
-          //   Icons.edit_square,
-          //   color: Colors.black,
-          //   size: 20.0,
-          // ),
         ),
       ],
     );
