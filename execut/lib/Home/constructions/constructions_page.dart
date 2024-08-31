@@ -30,7 +30,7 @@ class ConstructionsPage extends StatefulWidget {
 }
 
 class _ConstructionsPageState extends State<ConstructionsPage> {
-  List<dynamic> listaobras = [];
+  List<Obra> listaobras = [];
 
   @override
   void initState() {
