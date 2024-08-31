@@ -111,15 +111,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
     List<Widget> list = [];
     for (int i = 0; i < listaobras.length; i++) {
       list.add(
-        _cardPerson(
-          person: Person(
-            id: i,
-            nome: listaobras[i]['responsavelObra'],
-            funcao: listaobras[i]['valorFinal'].toString(),
-            icon: Icons.person,
-            telefone: "contato pessoal",
-          ),
-        ),
+        _card(obra: listaobras[i]),
       );
     }
     return list;
