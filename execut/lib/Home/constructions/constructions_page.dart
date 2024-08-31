@@ -334,9 +334,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
     );
   }
 
-  Widget _cardPerson({
-    required Person person,
-  }) {
+  Widget _card({required Obra obra}) {
     return Stack(
       children: [
         Container(
@@ -379,7 +377,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ],
                 ),
                 Text(
-                  person.nome,
+                  obra.responsavelObra.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -389,7 +387,34 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  person.funcao,
+                  obra.valorFinal.toString(),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                Text(
+                  obra.dataInicio.toString(),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  obra.dataFim.toString(),
+                  textAlign: TextAlign.center,
+                  ),
+                ),
+                Text(
+                  obra.cliente.nomeCliente.toString(),
+                  textAlign: TextAlign.center,
+                  ),
+                ),
+                Text(
+                  obra.cliente.telefone.toString(),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                ),
+                Text(
+                  obra.cliente.endereco.logradouro.toString(),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  obra.cliente.endereco.complemento.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -399,7 +424,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  person.telefone,
+                  obra.endereco.cidade.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -419,10 +444,10 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
             onSelected: (value) {
               if (value == 'edit') {
                 //TODO:  Ação de editar
-                showMyDialog(context, person: person);
+                showMyDialog(context, obra: obra);
               } else if (value == 'delete') {
                 //TODO: Ação de excluir
-                print("Excluir person id ${person.id}");
+                print("Excluir person id ${obra.idObra}");
               }
             },
             itemBuilder: (BuildContext context) {
