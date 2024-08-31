@@ -42,12 +42,11 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
     try {
       Dio customDio = Dio(
         BaseOptions(
-          connectTimeout: const Duration(seconds: 3000),
-          receiveTimeout: const Duration(seconds: 3000),
+          connectTimeout: const Duration(seconds: 5000),
+          receiveTimeout: const Duration(seconds: 5000),
           contentType: Headers.jsonContentType,
           validateStatus: (int? status) {
             return status != null;
-            // return status != null && status >= 200 && status < 300;
           },
         ),
       );
