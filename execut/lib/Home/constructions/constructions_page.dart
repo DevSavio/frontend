@@ -117,7 +117,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
     return list;
   }
 
-  Future<void> showMyDialog(context, {Person? person}) async {
+  Future<void> showMyDialog(context, {Obra? obra}) async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -132,20 +132,20 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                 Container(
                   width: 66,
                   height: 66,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage("https://via.placeholder.com/66x66"),
                       fit: BoxFit.fill,
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 // Linha 2: Campo de descrição
-                person != null
+                obra != null
                     ? Text(
-                        person.nome,
+                        obra.responsavelObra.toString(),
                       )
-                    : SizedBox(
+                    : const SizedBox(
                         height: 0,
                       ),
                 TextField(
@@ -158,14 +158,14 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                   maxLines: 3,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 // Linha 3: Seletor de tipo de mão de obra e seletor de prestador
                 Row(
                   children: [
                     Expanded(
                       child: DropdownButtonFormField<String>(
                         decoration: InputDecoration(
-                          labelText: 'Tipo de Mão de Obra',
+                          labelText: 'Obra',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -183,7 +183,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                         onChanged: (value) {},
                       ),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     Expanded(
                       child: DropdownButtonFormField<String>(
                         decoration: InputDecoration(
@@ -207,7 +207,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 // Linha 4: Seletor de função
                 DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -228,7 +228,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ],
                   onChanged: (value) {},
                 ),
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
               ],
             ),
           ),
