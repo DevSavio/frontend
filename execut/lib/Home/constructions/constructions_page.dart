@@ -250,9 +250,9 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
             const SizedBox(
               height: sizeH * 0.01,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'OBRA',
                   textAlign: TextAlign.start,
@@ -272,7 +272,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   width: 500,
                   child: TextFormField(
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search),
                       hintText: 'PROCURAR',
                       fillColor: Colors.white,
                       filled: true,
@@ -294,9 +294,9 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                     height: sizeH * 0.075,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: Color.fromARGB(255, 17, 1, 192),
+                      color: const Color.fromARGB(255, 17, 1, 192),
                     ),
-                    child: Text(
+                    child: const Text(
                       "ADICIONAR NOVO",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -338,7 +338,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
     return Stack(
       children: [
         Container(
-          margin: EdgeInsets.all(5),
+          margin: const EdgeInsets.all(5),
           height: 235,
           width: 290,
           decoration: BoxDecoration(
@@ -365,12 +365,12 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                     Container(
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 201, 198, 198),
+                        color: const Color.fromARGB(255, 201, 198, 198),
                         borderRadius: BorderRadius.circular(100),
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.person,
-                        color: const Color(0xFF000000),
+                        color: Color(0xFF000000),
                         size: 38,
                       ),
                     ),
@@ -390,28 +390,61 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   obra.valorFinal.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: 'Nunito Sans',
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
                 Text(
                   obra.dataInicio.toString(),
                   textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: 'Nunito Sans',
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
                 Text(
                   obra.dataFim.toString(),
                   textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: 'Nunito Sans',
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 Text(
                   obra.cliente.nomeCliente.toString(),
                   textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: 'Nunito Sans',
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 Text(
                   obra.cliente.telefone.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: 'Nunito Sans',
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
                 Text(
                   obra.cliente.endereco.logradouro.toString(),
                   textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontFamily: 'Nunito Sans',
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
                 Text(
                   obra.cliente.endereco.complemento.toString(),
@@ -451,7 +484,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
               }
             },
             itemBuilder: (BuildContext context) {
-              return [
+              return const [
                 PopupMenuItem(
                   value: 'edit',
                   child: Text('Editar'),
