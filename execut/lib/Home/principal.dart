@@ -276,7 +276,7 @@ class _PrincipalState extends State<Principal> {
     required Color statusColor,
   }) {
     return Container(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(18.0),
       decoration: const BoxDecoration(
         border: Border(
           bottom:
@@ -294,7 +294,7 @@ class _PrincipalState extends State<Principal> {
             buildCell(label: providers, localWidth: 120.0),
             buildCell(label: amount, localWidth: 120.0),
             buildCell(
-                label: status, localWidth: 200.0, statusColor: statusColor),
+                label: status, localWidth: 180.0, statusColor: statusColor),
           ],
         ),
       ),
