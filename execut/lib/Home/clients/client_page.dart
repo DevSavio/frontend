@@ -372,10 +372,18 @@ class _ClientPageState extends State<ClientPage> {
                                         //     razaoSocial: c[]('razaoSocial'),
                                         //     cpfCnpj: c[]('cpfCnpj'),
                                         //     telefone: c[]('telefone'),
-                                      )
-                                    ])
-                              ]))))
-            ])));
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _Cliente() {
