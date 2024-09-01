@@ -7,6 +7,7 @@ import 'package:execut/models/obra_model.dart';
 import 'package:execut/models/pagamento_model.dart';
 import 'package:execut/models/prestador_model.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../models/endereco_model.dart';
 import '../../widgets/modal_widget.dart';
@@ -20,6 +21,7 @@ class ConstructionsPage extends StatefulWidget {
 
 class _ConstructionsPageState extends State<ConstructionsPage> {
   List<Obra> listaobras = [];
+  var format = DateFormat('dd/MM/yyyy');
 
   @override
   void initState() {
@@ -124,7 +126,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
       builder: (BuildContext context) {
         return ModalWidget(
           child: SizedBox(
-            width: 600,
+            width: sizeH * 0.015,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -397,7 +399,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  obra.dataInicio.toString(),
+                  format.format(obra.dataInicio),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -407,7 +409,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  obra.dataFim.toString(),
+                  format.format(obra.dataFim),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
