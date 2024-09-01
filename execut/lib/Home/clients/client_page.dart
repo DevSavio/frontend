@@ -335,7 +335,9 @@ class _ClientPageState extends State<ClientPage> {
                                         ],
                                       ),
                                     ),
-                                    Container(
+                          GestureDetector(
+                            onTap: () => _Cliente(),
+                            child: Container(
                                       alignment: Alignment.center,
                                       width: sizeW * 0.1375,
                                       height: sizeH * 0.075,
@@ -348,6 +350,7 @@ class _ClientPageState extends State<ClientPage> {
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           color: Colors.white,
+                                ),
                                         ),
                                       ),
                                     ),
