@@ -341,8 +341,8 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
       children: [
         Container(
           margin: const EdgeInsets.all(5),
-          height: 235,
-          width: 290,
+          height: sizeH * 0.3875,
+          width: sizeW * 0.2125,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(14),
