@@ -126,7 +126,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
       builder: (BuildContext context) {
         return ModalWidget(
           child: SizedBox(
-            width: sizeH * 0.015,
+            width: sizeH * 0.725,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
