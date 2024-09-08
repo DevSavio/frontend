@@ -275,7 +275,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   child: TextFormField(
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.search),
-                      hintText: 'PROCURAR',
+                      hintText: 'PROCURAR OBRA',
                       fillColor: Colors.white,
                       filled: true,
                       contentPadding: const EdgeInsets.all(8.0),
