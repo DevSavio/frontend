@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:execut/Home/principal.dart';
 import 'package:execut/constants/size.dart';
 import 'package:execut/models/cliente_model.dart';
 import 'package:execut/models/funcao_model.dart';
@@ -43,7 +42,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
       );
 
       customDio.interceptors.addAll([
-        ErrorInterceptor(),
+        // ErrorInterceptor(),
       ]);
 
       final response = await customDio.get('http://localhost:8080/obras');
@@ -99,7 +98,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
       });
 
       setState(() {
-        print("Até aqui o Senhor tem me acompanhado");
+        print("Até aqui o Senhor tem me acompanhado Obras");
         print(listaobras.toList());
       });
 
@@ -135,6 +134,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   width: 66,
                   height: 66,
                   decoration: const BoxDecoration(
+                    // borderRadius: BorderRadius.all(),
                     image: DecorationImage(
                       image: NetworkImage("https://via.placeholder.com/66x66"),
                       fit: BoxFit.fill,
@@ -145,7 +145,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                 // Linha 2: Campo de descrição
                 obra != null
                     ? Text(
-                        obra.responsavelObra.toString(),
+                        obra.responsavelObra,
                       )
                     : const SizedBox(
                         height: 0,
@@ -294,9 +294,9 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                     alignment: Alignment.center,
                     width: sizeW * 0.1375,
                     height: sizeH * 0.075,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: const Color.fromARGB(255, 17, 1, 192),
+                    decoration: const BoxDecoration(
+                      // borderRadius: BorderRadius.circular(10),
+                      color: Color.fromARGB(255, 17, 1, 192),
                     ),
                     child: const Text(
                       "ADICIONAR NOVO",
