@@ -389,7 +389,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  obra.valorFinal.toString(),
+                  "Valor da OBRA: " + obra.valorFinal.toString() + ",00",
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -399,7 +399,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  format.format(obra.dataInicio),
+                  "Data Inicial: " + format.format(obra.dataInicio),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -409,7 +409,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  format.format(obra.dataFim),
+                  "Data Final: " + format.format(obra.dataFim),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -419,7 +419,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  obra.cliente.nomeCliente.toString(),
+                  "Nome do Cliente: " + obra.cliente.nomeCliente.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -429,7 +429,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  obra.cliente.telefone.toString(),
+                  "Telefone do Cliente: " + obra.cliente.telefone.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
@@ -439,6 +439,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
+                  "Rua do Cliente: " +
                   obra.cliente.endereco.logradouro.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
@@ -449,6 +450,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
+                  "Complemento: " +
                   obra.cliente.endereco.complemento.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
@@ -459,7 +461,7 @@ class _ConstructionsPageState extends State<ConstructionsPage> {
                   ),
                 ),
                 Text(
-                  obra.endereco.cidade.toString(),
+                  "Cidade: " + obra.endereco.cidade.toString(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.black,
